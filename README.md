@@ -1,5 +1,10 @@
 # Portainer Deployment
 
+J'ai une configuration VPS chez Hostinger avec Ubuntu 24 et Coolify d'installé.
+Cette configuration n'est pas assez flexible pour mes besoins, je vais donc repartir d'une installation Ubuntu propre et installer Portainer.
+
+Je vais documenter les étapes ici.
+
 ## Phase 1 : Ubuntu
 
 - [ ] Désactiver le FIREWALL du VPS

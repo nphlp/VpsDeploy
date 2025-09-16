@@ -1,10 +1,14 @@
 import type { NextConfig } from "next";
-import path from "path";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const isStandalone = process.env.NEXTJS_STANDALONE === "true"
 
 const nextConfig: NextConfig = {
-    turbopack: {
-        root: path.join(__dirname, ".."),
-    },
+    output: isStandalone ? "standalone" : undefined,
+    outputFileTracingRoot: __dirname,
 };
 
 export default nextConfig;
