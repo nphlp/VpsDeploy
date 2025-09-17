@@ -1,31 +1,5 @@
 # Docker Installation
 
--   [ ] Installer Ubuntu sur le VPS depuis le panneau Hostinger
-
--   [ ] Configurer la connexion SSH entre le VPS et la machine locale
-
--   [ ] Se connecter en SSH au VPS
-
-```bash
-ssh root@my-vps-ip-address
-```
-
--   [ ] Update système et paquets
-
-```bash
-apt update && apt upgrade -y
-```
-
-Si une fenêtre rose "Configuring openssh-server" apparaît,
-sélectionner la première option "install the package maintainer's version".
-
--   [ ] Installer tree et vérifier la structure du VPS
-
-```bash
-apt install tree
-tree -L 2 ../
-```
-
 -   [ ] Installer Docker en suivant : [Docker Ubuntu Installation](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 
 ```bash
@@ -54,15 +28,6 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 ```bash
 sudo docker run hello-world
-```
-
--   [ ] Installer Lazydocker : [Lazydocker GitHub](https://github.com/jesseduffield/lazydocker)
-
-```bash
-# Installer Lazydocker
-curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
-# Lien symbolique pour un accès global
-ln -s /root/.local/bin/lazydocker /usr/local/bin/lazydocker
 ```
 
 -   [ ] Nettoyer docker

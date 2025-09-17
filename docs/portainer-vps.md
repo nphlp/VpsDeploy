@@ -1,8 +1,6 @@
 # Portainer VPS Installation
 
-## Avec git
-
--   [ ] Vérifier que vous êtes bien dans `/root` avec la commande `pwd`
+## Installer Portainer
 
 -   [ ] Cloner ce repo
 
@@ -13,19 +11,24 @@ cp .env.example .env
 nano .env
 ```
 
--   [ ] Créer le fichier `acme.json` et lui donner les bons droits
+-   [ ] Créer le fichier `acme.json` qui va stocker les certificats SSL et Let's Encrypt
 
 ```bash
-touch acme.json
-chmod 600 acme.json
+make acme
 ```
 
 -   [ ] Lancer la stack Traefik + Portainer
 
 ```bash
-docker compose up -d
+make portainer-vps
 ```
+
+-   [ ] Redémarrer le VPS pour que les certificats SSL soient bien pris en compte
 
 -   [ ] Accéder à l'interface web de Portainer via le domaine : `https://portainer.mondomain.com`
 
-Si besoin, redémarrer le VPS pour que les certificats SSL soient bien validés.
+## Arrêter Portainer
+
+```bash
+make portainer-vps-stop
+```

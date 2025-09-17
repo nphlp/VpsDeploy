@@ -1,30 +1,23 @@
 # Portainer Local Installation
 
-## Concept
+## Installer Portainer
 
-Le but est de reproduire la configuration **Portainer/Traefik du VPS en local** afin de tester les stacks en local avant la production.
+-   [ ] Cloner ce repo
 
-Les composes `Portainer/Traefik` sont placées dans le répertoire `portainer/`.
+-   [ ] Copier le `.env.example` en `.env` et adapter les variables d'environnement
 
-- `compose.portainer.yml` : configuration Portainer/Traefik -> **en local**
-- `compose.vps.yml` : configuration Portainer/Traefik -> **sur le VPS**
+```bash
+cp .env.example .env
+nano .env
+```
 
-La stack Portainer/Traefik est indépendante (standalone) et la stack web est déployée via Portainer.
-
-Les composes `Nextjs` sont placées dans le répertoire `web/`.
-
-- `compose.local.yml` : configuration Nextjs en local -> **hors Portainer**
-- `compose.prod.yml` : configuration Nextjs en production -> **via Portainer**
-
-## Guide d'installation
-
-- [ ] Générer des certificats SSL auto-signés pour le domaine local
+-   [ ] Générer des certificats SSL et Let's Encrypt locaux auto-signés
 
 ```bash
 make tls
 ```
 
-- [ ] Ajouter les entrées dans le fichier hosts
+-   [ ] Mapper les domaines au localhost dans le fichier `/etc/hosts`
 
 ```bash
 # Editer le fichier hosts
@@ -37,14 +30,16 @@ nano /etc/hosts
 127.0.0.1 portainer.local.dev
 ```
 
-- [ ] Lancer la stack Portainer/Traefik
+-   [ ] Lancer la stack Portainer/Traefik
 
 ```bash
-make portainer
+make portainer-local
 ```
 
-- [ ] Accéder à l'interface Portainer via : [https://portainer.local.dev](https://portainer.local.dev)
+-   [ ] Accéder à l'interface Portainer via : [https://portainer.local.dev](https://portainer.local.dev)
 
-## Tester une stack web
+## Arrêter Portainer
 
-
+```bash
+make portainer-local-stop
+```
