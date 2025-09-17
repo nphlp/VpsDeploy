@@ -8,9 +8,15 @@ services:
         ports:
             - "3000:3000"
         restart: unless-stopped
+        volumes:
+            - nextjs-volume:/app/.next/cache
         networks:
-            - app-network
+            - nextjs-network
+
+volumes:
+    nextjs-volume:
+        driver: local
 
 networks:
-    app-network:
+    nextjs-network:
         driver: bridge
