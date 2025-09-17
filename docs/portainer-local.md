@@ -1,4 +1,4 @@
-# Portainer & Traefik (local)
+# Portainer Local Installation
 
 ## Concept
 

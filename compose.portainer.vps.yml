@@ -11,7 +11,7 @@ services:
             - --providers.docker
             - --log.level=ERROR
             - --certificatesresolvers.leresolver.acme.httpchallenge=true
-            - --certificatesresolvers.leresolver.acme.email=hello@mondomain.com # Update with your email (Let's Encrypt and SSL certs)
+            - --certificatesresolvers.leresolver.acme.email=${VPS_EMAIL}
             - --certificatesresolvers.leresolver.acme.storage=./acme.json
             - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
         ports:
@@ -39,14 +39,14 @@ services:
         labels:
             # Frontend
             - "traefik.enable=true"
-            - "traefik.http.routers.frontend.rule=Host(`portainer.yourdomain.com`)" # Update with your domain
+            - "traefik.http.routers.frontend.rule=Host(`portainer.${VPS_DOMAIN}`)"
             - "traefik.http.routers.frontend.entrypoints=websecure"
             - "traefik.http.services.frontend.loadbalancer.server.port=9000"
             - "traefik.http.routers.frontend.service=frontend"
             - "traefik.http.routers.frontend.tls.certresolver=leresolver"
 
             # Edge
-            - "traefik.http.routers.edge.rule=Host(`edge.yourdomain.com`)" # Update with your domain
+            - "traefik.http.routers.edge.rule=Host(`edge.${VPS_DOMAIN}`)"
             - "traefik.http.routers.edge.entrypoints=websecure"
             - "traefik.http.services.edge.loadbalancer.server.port=8000"
             - "traefik.http.routers.edge.service=edge"
