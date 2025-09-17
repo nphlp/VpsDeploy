@@ -1,6 +1,6 @@
 services:
     nextjs:
-        container_name: nextjs-app
+        container_name: nextjs-local-stack
         build:
             context: ./
             dockerfile: ./Dockerfile
@@ -10,10 +10,10 @@ services:
             - nextjs-volume:/app/.next/cache
         labels:
             - "traefik.enable=true"
-            - "traefik.http.routers.nextjs.rule=Host(`app.nansp.dev`)"
-            - "traefik.http.routers.nextjs.entrypoints=websecure"
-            - "traefik.http.services.nextjs.loadbalancer.server.port=3000"
-            - "traefik.http.routers.nextjs.tls.certresolver=leresolver"
+            - "traefik.http.routers.nextjs-local.rule=Host(`front.local.dev`)"
+            - "traefik.http.routers.nextjs-local.entrypoints=websecure"
+            - "traefik.http.services.nextjs-local.loadbalancer.server.port=3000"
+            - "traefik.http.routers.nextjs-local.tls=true"
         networks:
             - traefik
 
@@ -24,4 +24,4 @@ volumes:
 networks:
     traefik:
         external: true
-        name: root_default
+        name: traefik

@@ -3,21 +3,21 @@ services:
         container_name: traefik
         image: "traefik:latest"
         restart: unless-stopped
+        networks:
+            - traefik
         command:
             - --entrypoints.web.address=:80
             - --entrypoints.websecure.address=:443
             - --providers.docker
             - --log.level=ERROR
-            - --certificatesresolvers.leresolver.acme.httpchallenge=true
-            - --certificatesresolvers.leresolver.acme.email=hello@mondomain.com # Update with your email (Let's Encrypt and SSL certs)
-            - --certificatesresolvers.leresolver.acme.storage=./acme.json
-            - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
+            - --providers.file.directory=/etc/traefik/dynamic
         ports:
             - "80:80"
             - "443:443"
         volumes:
             - "/var/run/docker.sock:/var/run/docker.sock:ro"
-            - "./acme.json:/acme.json"
+            - "./.dev-certs:/etc/traefik/certs:ro"
+            - "./.dev-certs/traefik-dynamic.yml:/etc/traefik/dynamic/tls.yml:ro"
         labels:
             - "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
             - "traefik.http.routers.http-catchall.entrypoints=web"
@@ -32,21 +32,28 @@ services:
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             - portainer_data:/data
+        networks:
+            - traefik
         labels:
             # Frontend
             - "traefik.enable=true"
-            - "traefik.http.routers.frontend.rule=Host(`portainer.yourdomain.com`)" # Update with your domain
+            - "traefik.http.routers.frontend.rule=Host(`portainer.local.dev`)"
             - "traefik.http.routers.frontend.entrypoints=websecure"
             - "traefik.http.services.frontend.loadbalancer.server.port=9000"
             - "traefik.http.routers.frontend.service=frontend"
-            - "traefik.http.routers.frontend.tls.certresolver=leresolver"
+            - "traefik.http.routers.frontend.tls=true"
 
             # Edge
-            - "traefik.http.routers.edge.rule=Host(`edge.yourdomain.com`)" # Update with your domain
+            - "traefik.http.routers.edge.rule=Host(`edge.local.dev`)"
             - "traefik.http.routers.edge.entrypoints=websecure"
             - "traefik.http.services.edge.loadbalancer.server.port=8000"
             - "traefik.http.routers.edge.service=edge"
-            - "traefik.http.routers.edge.tls.certresolver=leresolver"
+            - "traefik.http.routers.edge.tls=true"
+
+networks:
+    traefik:
+        driver: bridge
+        name: traefik
 
 volumes:
     portainer_data:
