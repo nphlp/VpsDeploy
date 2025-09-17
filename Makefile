@@ -16,7 +16,7 @@ tls:
 	echo "          keyFile: /etc/traefik/certs/local.dev.key" >> .dev-certs/traefik-dynamic.yml
 
 portainer:
-	docker compose -f compose.portainer.local.yml up -d --build
+	docker compose -f compose.local.yml up -d --build
 
 portainer-stop:
-	docker compose -f compose.portainer.local.yml down
+	docker compose -f compose.local.yml down
