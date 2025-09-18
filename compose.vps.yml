@@ -10,6 +10,11 @@ services:
             - --entrypoints.websecure.address=:443
             - --providers.docker
             - --log.level=ERROR
+            # Let's Encrypt staging server
+            # -> avoid rate limits during testing
+            # -> remove this line for to use production server
+            # -> delete `acme.json` when switching between staging and production
+            - --certificatesresolvers.leresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
             - --certificatesresolvers.leresolver.acme.httpchallenge=true
             - --certificatesresolvers.leresolver.acme.email=${VPS_EMAIL}
             - --certificatesresolvers.leresolver.acme.storage=./acme.json
