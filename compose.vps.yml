@@ -10,13 +10,15 @@ services:
             - --entrypoints.websecure.address=:443
             - --providers.docker
             - --log.level=ERROR
-            # ZeroSSL (SSL certificates)
-            # -> alternative to Let's Encrypt when rate limits are hit
-            # -> comment the following line to get back Let's Encrypt
-            # -> delete `acme.json` to switch between Let's Encrypt and ZeroSSL
+            # ZeroSSL Provider
             - --certificatesresolvers.leresolver.acme.caserver=https://acme.zerossl.com/v2/DV90
+            # ZeroSSL Provider
             - --certificatesresolvers.leresolver.acme.httpchallenge=true
             - --certificatesresolvers.leresolver.acme.email=${VPS_EMAIL}
+            # ZeroSSL EAB
+            - --certificatesresolvers.leresolver.acme.eab.kid=${ZEROSSL_EAB_KEY_ID}
+            - --certificatesresolvers.leresolver.acme.eab.hmacencoded=${ZEROSSL_EAB_HMAC_KEY}
+            # ZeroSSL EAB
             - --certificatesresolvers.leresolver.acme.storage=./acme.json
             - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
         ports:
