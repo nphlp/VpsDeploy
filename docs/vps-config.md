@@ -12,17 +12,21 @@
 
 ## DNS du SMTP
 
--   [ ] Configurer le SMTP via [UsePlunk](https://useplunk.com)
-
-| Type  | Nom          | Priorité | Contenu      | TTL   |
-| ----- | ------------ | -------- | ------------ | ----- |
-| CNAME | secret_value | 0        | secret_value | 14400 |
-| CNAME | secret_value | 0        | secret_value | 14400 |
-| CNAME | secret_value | 0        | secret_value | 14400 |
-| TXT   | plunk        | 0        | secret_value | 14400 |
-| MX    | plunk        | 10       | secret_value | 14400 |
-
 -   [ ] Créer un email `hello@mondomain.com`
+
+-   [ ] Lancer la configuration automatique par Hostinger
+
+| Type  | Nom                         | Priorité | Contenu                                        | TTL   |
+| ----- | --------------------------- | -------- | ---------------------------------------------- | ----- |
+| CNAME | hostingermail-c.\_domainkey | 0        | hostingermail-c.dkim.mail.hostinger.com        | 300   |
+| CNAME | hostingermail-b.\_domainkey | 0        | hostingermail-b.dkim.mail.hostinger.com        | 300   |
+| CNAME | hostingermail-a.\_domainkey | 0        | hostingermail-a.dkim.mail.hostinger.com        | 300   |
+| CNAME | autodiscover                | 0        | autodiscover.mail.hostinger.com                | 300   |
+| CNAME | autoconfig                  | 0        | autoconfig.mail.hostinger.com                  | 300   |
+| TXT   | \_dmarc                     | 0        | "v=DMARC1; p=none"                             | 3600  |
+| TXT   | @                           | 0        | "v=spf1 include:\_spf.mail.hostinger.com ~all" | 3600  |
+| MX    | @                           | 10       | mx2.hostinger.com                              | 14400 |
+| MX    | @                           | 5        | mx1.hostinger.com                              | 14400 |
 
 ## Firewall
 
