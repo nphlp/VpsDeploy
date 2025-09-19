@@ -24,6 +24,7 @@ make tls
 nano /etc/hosts
 
 # Inserer les lignes suivantes
+127.0.0.1 preview.local.dev
 127.0.0.1 front.local.dev
 127.0.0.1 traefik.local.dev
 127.0.0.1 edge.local.dev
