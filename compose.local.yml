@@ -9,7 +9,9 @@ services:
             - --entrypoints.web.address=:80
             - --entrypoints.websecure.address=:443
             - --providers.docker
-            - --log.level=ERROR
+            - --log.level=DEBUG
+            - --api.dashboard=true
+            - --api.debug=true
             - --providers.file.directory=/etc/traefik/dynamic
         ports:
             - "80:80"
