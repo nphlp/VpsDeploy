@@ -21,10 +21,17 @@ services:
             - "./.dev-certs:/etc/traefik/certs:ro"
             - "./.dev-certs/traefik-dynamic.yml:/etc/traefik/dynamic/tls.yml:ro"
         labels:
+            # Global HTTP to HTTPS redirect
             - "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
             - "traefik.http.routers.http-catchall.entrypoints=web"
             - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
             - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+
+            # Dashboard
+            - "traefik.http.routers.dashboard.rule=Host(`traefik.local.dev`)"
+            - "traefik.http.routers.dashboard.entrypoints=websecure"
+            - "traefik.http.routers.dashboard.service=api@internal"
+            - "traefik.http.routers.dashboard.tls=true"
 
     portainer:
         container_name: portainer
