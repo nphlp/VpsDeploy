@@ -12,27 +12,41 @@
 ssh root@my-vps-ip-address
 ```
 
+> [!NOTE] Optionnel
+> Après un réinstallation propre d'Ubuntu un message d'erreur peut apparaître (ex: "Warning: remote host identification has changed!")
+> 1. Entrer `ssh-keygen -R my-vps-ip-address` pour supprimer l'ancienne clé.
+> 2. Se reconnecter en SSH au VPS avec `ssh root@my-vps-ip-address`
+> 3. Accepter la nouvelle clé en entrant "yes" puis `Entrée`
+
 ## Update & Upgrade
 
 ```bash
 apt update && apt upgrade -y
 ```
 
-Lors de la première installation, si une fenêtre rose "Configuring openssh-server" apparaît : sélectionner la première option "install the package maintainer's version".
+Lors de la première installation, si une fenêtre rose "Configuring openssh-server" apparaît.
+-> Sélectionner la première option : **install the package maintainer's version**.
 
-Lors des mises à jour suivantes : sélectionner la deuxième option "keep the local version currently installed".
+Lors des mises à jour suivantes.
+-> Sélectionner la deuxième option : **keep the local version currently installed**.
+
+## Install Ping
+
+```bash
+sudo apt install iputils-ping
+```
 
 ## Install Tree
 
 ```bash
-apt install tree -y
+apt install tree
 tree -L 2 ../
 ```
 
 ## Install Make
 
 ```bash
-sudo apt install make -y
+sudo apt install make
 ```
 
 ## Install Lazydocker

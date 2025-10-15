@@ -1,5 +1,11 @@
 # VPS Configuration
 
+## Prérequis
+
+- [ ] VPS
+- [ ] Nom de domaine
+- [ ] Service Email
+
 ## DNS du Domaine
 
 -   [ ] Configurer le domaine `mondomain.com` pour qu'il pointe vers le VPS

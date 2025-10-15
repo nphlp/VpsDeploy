@@ -2,12 +2,16 @@
 
 ## VPS Install, Config & Usage
 
-- [VPS Config](./docs/vps-config.md)
-- [Common Install](./docs/common-install.md)
-- [Docker VPS Install](./docs/docker-install.md)
-- [Portainer VPS Install](./docs/portainer-vps.md)
+-   [VPS Config](./docs/vps-config.md)
+-   [Common Install](./docs/common-install.md)
+-   [Docker VPS Install](./docs/docker-install.md)
 
-## Local Install, Config & Usage
+## Portainer
 
-- [Portainer Local Install](./docs/portainer-local.md)
-- [Web Local Deploy](./docs/web-local.md)
+-   [Portainer Local](./docs/portainer-local.md)
+-   [Portainer VPS](./docs/portainer-vps.md)
+
+## Dokploy
+
+-   [Dockploy Local](./docs/dokploy-local.md)
+-   [Dockploy VPS](./docs/dokploy-vps.md)
