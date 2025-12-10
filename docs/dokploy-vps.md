@@ -21,11 +21,11 @@ curl -sSL https://dokploy.com/install.sh | sh
    - Certificate Provider: basculer sur `Let's Encrypt`
    - `Save`
 
-4. Accédez à l'interface web de Dokploy via l'URL : [https://dokploy.my-domain.com](https://dokploy.my-domain.com).
+4. Activez le Parfeu du VPS dans l'interface Hostinger (voir [VPS Config](./vps-config.md)).
 
-5. Activez le Parfeu du VPS dans l'interface Hostinger (voir [VPS Config](./vps-config.md)).
+5. Redémarrer le VPS.
 
-6. Redémarrer le VPS.
+6. Accédez à l'interface web de Dokploy via l'URL : [https://dokploy.my-domain.com](https://dokploy.my-domain.com).
 
 ## Configuration supplémentaires
 
