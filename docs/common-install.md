@@ -3,9 +3,7 @@
 ## Ubuntu et SSH
 
 -   [ ] Installer Ubuntu sur le VPS depuis le panneau Hostinger
-
 -   [ ] Configurer la connexion SSH entre le VPS et la machine locale
-
 -   [ ] Se connecter en SSH au VPS
 
 ```bash

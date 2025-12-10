@@ -2,9 +2,18 @@
 
 ## Prérequis
 
-- [ ] VPS
-- [ ] Nom de domaine
-- [ ] Service Email
+-   [ ] VPS
+-   [ ] Nom de domaine
+-   [ ] Service Email
+
+## DNS de Servers de noms
+
+- [ ] Laisser cette configuration par défaut
+
+| Type | Nom       | Priorité | Contenu             | TTL   |
+| ---- | --------- | -------- | ------------------- | ----- |
+| NS   | mondomain.com | 0        | ns1.dns-parking.com | 86400 |
+| NS   | mondomain.com | 0        | ns2.dns-parking.com | 86400 |
 
 ## DNS du Domaine
 
@@ -19,7 +28,6 @@
 ## DNS du SMTP
 
 -   [ ] Créer un email `hello@mondomain.com`
-
 -   [ ] Lancer la configuration automatique par Hostinger
 
 | Type  | Nom                         | Priorité | Contenu                                        | TTL   |
