@@ -1,6 +1,8 @@
 # VPS Deployment
 
--   [VPS Config](./docs/vps-config.md)
--   [Common Install](./docs/common-install.md)
--   [Docker VPS Install](./docs/docker-install.md)
--   [Dockploy VPS](./docs/dokploy-vps.md)
+1. [DNS and Firewall](./docs/dns-and-firewall.md)
+2. [Common Packages](./docs/common-packages.md)
+3. [Docker](./docs/docker.md)
+4. [Dockploy](./docs/dokploy.md)
+5. [Cloudflare](./docs/cloudflare.md)
+6. [Infisical](./docs/infisical.md)

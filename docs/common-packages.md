@@ -55,3 +55,9 @@ curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/i
 # Lien symbolique pour un accès global
 ln -s /root/.local/bin/lazydocker /usr/local/bin/lazydocker
 ```
+
+## Install Btop
+
+```bash
+apt install btop
+```

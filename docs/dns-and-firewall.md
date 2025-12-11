@@ -8,10 +8,10 @@
 
 ## DNS de Servers de noms
 
-- [ ] Laisser cette configuration par défaut
+-   [ ] Laisser cette configuration par défaut
 
-| Type | Nom       | Priorité | Contenu             | TTL   |
-| ---- | --------- | -------- | ------------------- | ----- |
+| Type | Nom           | Priorité | Contenu             | TTL   |
+| ---- | ------------- | -------- | ------------------- | ----- |
 | NS   | mondomain.com | 0        | ns1.dns-parking.com | 86400 |
 | NS   | mondomain.com | 0        | ns2.dns-parking.com | 86400 |
 
