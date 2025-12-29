@@ -61,3 +61,14 @@ ln -s /root/.local/bin/lazydocker /usr/local/bin/lazydocker
 ```bash
 apt install btop
 ```
+
+## Installer Claude Code
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# Open Claude
+claude
+```
