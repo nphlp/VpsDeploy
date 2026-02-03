@@ -1,8 +1,11 @@
-# Cloudflare
+# Cloudflare Proxy DNS
 
-## Reverse proxy et CDN
+> Cette documentation est une archive, le service Cloudflare Proxy DNS n'est plus utilisé pour les raisons suivantes :
+> - Impossibilité d'utiliser les sous-domaines de niveau 3 (ex : dokploy.domain.com) avec un plan gratuit
+> - Complexité pour mettre une place un VPN avec des connexions HTTPs sécurisées (Prisma Studio)
+> - Dépendance externe supplémentaire non nécessaire
 
-### L'objectif
+## L'objectif
 
 Configurer Cloudflare en tant que reverse proxy et CDN pour une application web.
 
@@ -27,7 +30,7 @@ Cas d'utilisation avec Cloudflare :
 6. `Dokploy/Traefik`
 7. `Container Docker (application web)`
 
-### Configuration DNS par Hostinger (avant Cloudflare)
+## Configuration DNS par Hostinger (avant Cloudflare)
 
 1. Partie `nameservers`
 
@@ -64,7 +67,7 @@ C'est la configuration DNS des services `MAIL` : mon `email@domain.com` pointe v
 | MX    | @                           | 10       | mx2.hostinger.com                              | 14400 |
 | MX    | @                           | 5        | mx1.hostinger.com                              | 14400 |
 
-### Créer une configuration Cloudflare Proxy et DNS
+## Créer une configuration Cloudflare Proxy et DNS
 
 -   [ ] Créer un compte Cloudflare
 -   [ ] Aller dans le Dashboard > Accueil du compte > Onglet `Domaines`
@@ -107,5 +110,3 @@ C'est la configuration DNS des services `MAIL` : mon `email@domain.com` pointe v
     3. Remplacer le `ns1.dns-parking.com` et `ns2.dns-parking.com` par ceux fournis par Cloudflare
 
 -   [ ] Attendre la confirmation de propagation des DNS (peut prendre jusqu'à 24h) par email
-
-## Stockage d'objets R2
