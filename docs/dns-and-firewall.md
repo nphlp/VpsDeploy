@@ -49,11 +49,11 @@
 -   [ ] Protéger les environnements sensibles avec des wildcards
 
 **Wildcards → IP Tailscale (protégé) :**
-| Type | Nom              | Contenu       | TTL   |
-| ---- | ---------------- | ------------- | ----- |
-| A    | \*.nextjs-deploy | 100.x.x.x     | 14400 |
-| A    | \*.pulse-work    | 100.x.x.x     | 14400 |
-| A    | \*.cubiing       | 100.x.x.x     | 14400 |
+| Type | Nom              | Contenu                | TTL   |
+| ---- | ---------------- | ---------------------- | ----- |
+| A    | \*.nextjs-deploy | my-tailscale-ip-adress | 14400 |
+| A    | \*.pulse-work    | my-tailscale-ip-adress | 14400 |
+| A    | \*.cubiing       | my-tailscale-ip-adress | 14400 |
 
 **Productions → IP publique VPS (accessible) :**
 | Type | Nom          | Contenu           | TTL   |
