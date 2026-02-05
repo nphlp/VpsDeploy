@@ -42,6 +42,29 @@
 | MX    | @                           | 10       | mx2.hostinger.com                              | 14400 |
 | MX    | @                           | 5        | mx1.hostinger.com                              | 14400 |
 
+## DNS Tailscale (VPN)
+
+-   [ ] Configurer Tailscale sur le VPS ([guide Dokploy](https://docs.dokploy.com/docs/core/guides/tailscale))
+-   [ ] Récupérer l'IP Tailscale : `sudo tailscale ip -4`
+-   [ ] Protéger les environnements sensibles avec des wildcards
+
+**Wildcards → IP Tailscale (protégé) :**
+| Type | Nom              | Contenu       | TTL   |
+| ---- | ---------------- | ------------- | ----- |
+| A    | \*.nextjs-deploy | 100.x.x.x     | 14400 |
+| A    | \*.pulse-work    | 100.x.x.x     | 14400 |
+| A    | \*.cubiing       | 100.x.x.x     | 14400 |
+
+**Productions → IP publique VPS (accessible) :**
+| Type | Nom          | Contenu           | TTL   |
+| ---- | ------------ | ----------------- | ----- |
+| A    | nextjs-deploy| my-vps-ip-address | 14400 |
+| A    | pulse-work   | my-vps-ip-address | 14400 |
+| A    | cubiing      | my-vps-ip-address | 14400 |
+
+Les records spécifiques ont priorité sur les wildcards.
+Les wildcards couvrent : `preview.*`, `experiment.*`, `prisma-studio.*`, etc.
+
 ## Firewall
 
 -   [ ] Définir les règles du firewall
